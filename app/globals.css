@@ -33,7 +33,7 @@ a {
 .layout {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 1fr 280px;
   gap: 24px;
   padding: 28px 32px 48px;
 }
@@ -79,7 +79,6 @@ a {
 
 .nav-item {
   padding: 12px 14px;
-  border-radius: 14px;
   border: 1px solid transparent;
   color: var(--muted);
   transition: all 0.15s ease;
@@ -88,12 +87,6 @@ a {
 .nav-item:hover {
   border-color: var(--border);
   color: var(--text);
-}
-
-.nav-item.active {
-  background: linear-gradient(135deg, rgba(86, 225, 160, 0.28), rgba(255, 255, 255, 0.08));
-  color: var(--text);
-  border-color: rgba(158, 240, 196, 0.25);
 }
 
 .sidebar-card {

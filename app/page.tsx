@@ -1,20 +1,19 @@
 "use client";
 
 import report from "./report.json";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   BarChart,
   Bar,
   XAxis,
   YAxis,
   Tooltip,
-  CartesianGrid,
   ReferenceLine,
   Cell,
 } from "recharts";
 
 const data = [
-  ...report.top_3_growing_adomains.map((item) => ({ 
+  ...report.top_3_growing_adomains.map((item) => ({
     bin: item.adomain,
     count: item.spend_change_pct,
   })),
@@ -25,10 +24,6 @@ const data = [
 ];
 
 const navItems = [
-  ...report.top_3_growing_adomains.map((item) => ({
-    label: item.adomain,
-    growing: true,
-  })),
   ...report.top_3_declining_adomains.map((item) => ({
     label: item.adomain,
     growing: false,
@@ -36,36 +31,10 @@ const navItems = [
 ];
 
 export default function Page() {
-  const [activeNavItem, setActiveNavItem] = useState(navItems[0].label);
+  const router = useRouter();
 
   return (
     <main className="layout">
-      <aside className="sidebar">
-        <div className="brand">
-          <h1>{report.report_metadata.generation_timestamp}</h1>
-          <p>Detected Anomalies ({navItems.length})</p>
-        </div>
-
-        <nav className="nav">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              className={`nav-item ${item.growing ? "growing" : "declining"} ${
-                activeNavItem === item.label ? "active" : ""
-              }`}
-              onClick={() => setActiveNavItem(item.label)}
-            >
-              <span>{item.label}</span>
-            </a>
-          ))}
-        </nav>
-
-        <div className="sidebar-card">
-          <p className="eyebrow">Hint</p>
-          <p>Click on the RTB account name for AI analysis.</p>
-        </div>
-      </aside>
-
       <section className="content">
         <header className="hero">
           <div>
@@ -84,33 +53,67 @@ export default function Page() {
           <div className="stat-card">
             <p className="eyebrow">Advertiser Spend</p>
             <h3>${report.overall_summary.dec_10.total_adv_spend}</h3>
-            <p className="delta negative">{report.overall_summary.day_over_day_change.adv_spend_change_pct}% vs yesterday</p>
+            <p className="delta negative">
+              {report.overall_summary.day_over_day_change.adv_spend_change_pct}%
+              vs yesterday
+            </p>
           </div>
           <div className="stat-card">
             <p className="eyebrow">Clicks</p>
             <h3>{report.overall_summary.dec_10.total_clicks}</h3>
-            <p className="delta negative">{report.overall_summary.day_over_day_change.clicks_change_pct}% vs yesterday</p>
+            <p className="delta negative">
+              {report.overall_summary.day_over_day_change.clicks_change_pct}% vs
+              yesterday
+            </p>
           </div>
           <div className="stat-card">
             <p className="eyebrow">Views</p>
             <h3>{report.overall_summary.dec_10.total_views}</h3>
-            <p className="delta">{report.overall_summary.day_over_day_change.views_change_pct}% vs yesterday</p>
+            <p className="delta">
+              {report.overall_summary.day_over_day_change.views_change_pct}% vs
+              yesterday
+            </p>
           </div>
           <div className="stat-card">
             <p className="eyebrow">Average Bid Price</p>
             <h3>{report.overall_summary.dec_10.avg_winning_bid_price}</h3>
-            <p className="delta negative">{report.overall_summary.day_over_day_change.avg_bid_change_pct}% vs yesterday</p>
+            <p className="delta negative">
+              {report.overall_summary.day_over_day_change.avg_bid_change_pct}%
+              vs yesterday
+            </p>
           </div>
         </div>
 
         <div className="chart-grid">
           <div className="panel chart-card">
-            <div className="panel-head">
+            <BarChart width={1000} height={400} data={data}>
+              <XAxis dataKey="bin" tick={{ fill: "white" }} />
+
+              <YAxis domain={["auto", "auto"]} />
+
+              <Tooltip
+                formatter={(value: number | undefined) => [
+                  `change percent: ${value ?? 0}%`,
+                  "",
+                ]}
+              />
+
+              <ReferenceLine y={0} stroke="#333" strokeWidth={2} />
+
+              <Bar dataKey="count">
+                {data.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={entry.count < 0 ? "#ff4d4d" : "#4caf50"}
+                    onClick={() => router.push(`/details?bin=${entry.bin}`)}
+                  />
+                ))}
+              </Bar>
+            </BarChart>
+            <div>
               <div>
-                <p className="eyebrow">Revenue</p>
                 <h3>Key Insights Summary</h3>
               </div>
-              <button className="ghost small">Export</button>
             </div>
 
             <div>{report.key_insights.overall_performance}</div>
@@ -138,33 +141,33 @@ export default function Page() {
                 ))}
               </ul>
             </details>
-
-            <BarChart width={1000} height={400} data={data}>
-              <CartesianGrid strokeDasharray="3 3" />
-
-              <XAxis dataKey="bin" tick={{ fill: 'white' }} />
-
-              <YAxis domain={["auto", "auto"]} />
-
-              <Tooltip 
-                formatter={(value: number | undefined) => [`change percent: ${value ?? 0}%`, '']}
-              />
-
-              {/* Zero-line for visual clarity */}
-              <ReferenceLine y={0} stroke="#333" strokeWidth={2} />
-
-              <Bar dataKey="count">
-                {data.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={entry.count < 0 ? "#ff4d4d" : "#4caf50"} // red vs green
-                  />
-                ))}
-              </Bar>
-            </BarChart>
           </div>
         </div>
       </section>
+
+      <aside className="sidebar">
+        <div className="brand">
+          <h1>{report.report_metadata.generation_timestamp}</h1>
+          <p>Detected Anomalies ({navItems.length})</p>
+        </div>
+
+        <nav className="nav">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              className="nav-item"
+              onClick={() => router.push(`/details?bin=${item.label}`)}
+            >
+              <span>{item.label}</span>
+            </a>
+          ))}
+        </nav>
+
+        <div className="sidebar-card">
+          <p className="eyebrow">Hint</p>
+          <p>Click on the RTB account name for AI analysis.</p>
+        </div>
+      </aside>
     </main>
   );
 }
