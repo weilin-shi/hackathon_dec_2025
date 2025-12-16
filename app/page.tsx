@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useTransition } from "react";
 import report from "./report.json";
 import { useRouter } from "next/navigation";
 import {
@@ -32,10 +33,50 @@ const navItems = [
 
 export default function Page() {
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [isDelayActive, setIsDelayActive] = useState(false);
+  const showLoading = isPending || isDelayActive;
+  const handleClick = (route: string) => {
+    return () => {
+      setIsDelayActive(true);
+
+      setTimeout(() => {
+        startTransition(() => {
+          router.push(route);
+        });
+      }, 2000);
+    };
+  };
 
   return (
     <main className="layout">
       <section className="content">
+        {showLoading && (
+          <div className="loading-bar-container">
+            <div
+              style={{
+                height: 8,
+                width: 240,
+                background: "#eee",
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: 999,
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  bottom: 0,
+                  width: "40%",
+                  background: "#0070f3",
+                  animation: "loading-bar 1s infinite",
+                }}
+              />
+            </div>
+          </div>
+        )}
         <header className="hero">
           <div>
             <h2>VX Exchange Health Dashboard</h2>
@@ -105,7 +146,7 @@ export default function Page() {
                   <Cell
                     key={`cell-${index}`}
                     fill={entry.count < 0 ? "#ff4d4d" : "#4caf50"}
-                    onClick={() => router.push(`/details?bin=${entry.bin}`)}
+                    onClick={handleClick(`/details?bin=${entry.bin}`)}
                   />
                 ))}
               </Bar>
@@ -147,25 +188,19 @@ export default function Page() {
 
       <aside className="sidebar">
         <div className="brand">
-          <h1>{report.report_metadata.generation_timestamp}</h1>
-          <p>Detected Anomalies ({navItems.length})</p>
+          <p>Chat</p>
         </div>
 
-        <nav className="nav">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              className="nav-item"
-              onClick={() => router.push(`/details?bin=${item.label}`)}
-            >
-              <span>{item.label}</span>
-            </a>
-          ))}
-        </nav>
-
-        <div className="sidebar-card">
-          <p className="eyebrow">Hint</p>
-          <p>Click on the RTB account name for AI analysis.</p>
+        <div className="chat-input-container">
+          <textarea className="chat-input" placeholder="Ask me anything..." />
+        </div>
+        <div>
+          <button
+            className="primary"
+            onClick={handleClick("/details?bin=temu.com")}
+          >
+            Send
+          </button>
         </div>
       </aside>
     </main>
