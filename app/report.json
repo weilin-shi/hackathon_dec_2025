@@ -1,231 +1,467 @@
 {
   "report_metadata": {
-    "report_title": "EDSP Transaction Performance Comparison",
-    "date_range": "December 13-14, 2025",
-    "comparison_period": "Day-over-Day (Dec 14 vs Dec 13)",
+    "date_range": {
+      "start_date": "2025-12-09",
+      "end_date": "2025-12-10",
+      "time_filter": "Hour 1 (01:00-02:00 UTC)"
+    },
     "filters_applied": {
-      "hour": "12 (noon UTC)",
       "countries": ["US", "GB", "BR", "DE", "RU", "JP", "ID", "CA", "FR", "KR", "MX", "AU", "IT", "ES", "PH", "SA", "PL"],
-      "table": "dmx.bi.fct_edsp_transaction_events"
+      "data_source": "dmx.bi.fct_edsp_transaction_events"
     },
-    "generated_at": "2025-12-15T12:00:00Z"
+    "generation_timestamp": "2025-12-16T00:00:00Z"
   },
-  
   "overall_summary": {
-    "dec_13_totals": {
-      "total_advertiser_spend_usd": 45678.92,
-      "total_clicks": 428567,
-      "total_views": 2847291,
-      "average_winning_bid_cpm": 16.04
+    "dec_09": {
+      "total_adv_spend": 157640.10,
+      "total_clicks": 5492468,
+      "total_views": 81661576,
+      "avg_winning_bid_price": 1.96
     },
-    "dec_14_totals": {
-      "total_advertiser_spend_usd": 48234.56,
-      "total_clicks": 445123,
-      "total_views": 2963847,
-      "average_winning_bid_cpm": 16.27
+    "dec_10": {
+      "total_adv_spend": 125383.98,
+      "total_clicks": 4890210,
+      "total_views": 80561944,
+      "avg_winning_bid_price": 1.58
     },
-    "day_over_day_changes": {
-      "advertiser_spend_change_pct": 5.60,
-      "advertiser_spend_change_abs_usd": 2555.64,
-      "clicks_change_pct": 3.86,
-      "clicks_change_abs": 16556,
-      "views_change_pct": 4.09,
-      "views_change_abs": 116556,
-      "avg_bid_change_pct": 1.43,
-      "avg_bid_change_cpm": 0.23
-    },
-    "key_observation": "Modest growth across all metrics with advertiser spend leading at +5.6% day-over-day"
+    "day_over_day_change": {
+      "adv_spend_change": -32256.12,
+      "adv_spend_change_pct": -20.46,
+      "clicks_change": -602258,
+      "clicks_change_pct": -10.96,
+      "views_change": -1099632,
+      "views_change_pct": -1.35,
+      "avg_bid_change": -0.37,
+      "avg_bid_change_pct": -19.10
+    }
   },
-
-  "top_3_growing_rtb_accounts": [
+  "top_3_growing_adomains": [
     {
       "rank": 1,
-      "winner_rtb_account_name": "Exchange - RTB - Temu",
-      "metrics": {
-        "dec_13_spend_usd": 3789.45,
-        "dec_14_spend_usd": 4523.67,
-        "absolute_change_usd": 734.22,
-        "percent_change": 19.38
-      },
-      "top_growing_adomain": {
-        "name": "temu.com",
-        "dec_13_spend": 3789.45,
-        "dec_14_spend": 4523.67,
-        "change_pct": 19.38
-      },
-      "top_growing_pub_app": {
-        "name": "Woodoku",
-        "dec_13_spend": 224.36,
-        "dec_14_spend": 197.01,
-        "change_pct": -12.19,
-        "note": "Despite overall account growth, this app declined"
-      },
-      "top_growing_country": {
-        "code": "US",
-        "dec_13_spend": 3234.56,
-        "dec_14_spend": 3867.23,
-        "change_pct": 19.56
-      }
+      "adomain": "lazada.com",
+      "spend_dec_09": 123.46,
+      "spend_dec_10": 955.97,
+      "spend_change": 832.52,
+      "spend_change_pct": 674.34,
+      "top_3_rtb_accounts": [
+        {
+          "account_name": "Exchange - RTB - Yeahmobi",
+          "spend_dec_09": 19.58,
+          "spend_dec_10": 690.95,
+          "spend_change": 671.37,
+          "spend_change_pct": 3429.13
+        },
+        {
+          "account_name": "Exchange - RTB - Microcloud",
+          "spend_dec_09": 2.23,
+          "spend_dec_10": 135.72,
+          "spend_change": 133.49,
+          "spend_change_pct": 5977.62
+        },
+        {
+          "account_name": "Exchange - RTB - Advlion",
+          "spend_dec_09": 96.88,
+          "spend_dec_10": 119.59,
+          "spend_change": 22.71,
+          "spend_change_pct": 23.44
+        }
+      ],
+      "top_3_publisher_apps": [
+        {
+          "app_name": "FreeReels-安卓",
+          "spend_dec_09": 0.40,
+          "spend_dec_10": 65.26,
+          "spend_change": 64.85,
+          "spend_change_pct": 16046.64
+        },
+        {
+          "app_name": "Capcut_android",
+          "spend_dec_09": 1.06,
+          "spend_dec_10": 60.45,
+          "spend_change": 59.39,
+          "spend_change_pct": 5602.12
+        },
+        {
+          "app_name": "V380 Pro",
+          "spend_dec_09": 8.54,
+          "spend_dec_10": 66.89,
+          "spend_change": 58.36,
+          "spend_change_pct": 683.44
+        }
+      ],
+      "top_3_countries": [
+        {
+          "country": "PH",
+          "spend_dec_09": 115.49,
+          "spend_dec_10": 562.85,
+          "spend_change": 447.36,
+          "spend_change_pct": 387.29
+        },
+        {
+          "country": "ID",
+          "spend_dec_09": 7.14,
+          "spend_dec_10": 391.46,
+          "spend_change": 384.32,
+          "spend_change_pct": 5385.84
+        },
+        {
+          "country": "US",
+          "spend_dec_09": 0.21,
+          "spend_dec_10": 0.62,
+          "spend_change": 0.41,
+          "spend_change_pct": 199.36
+        }
+      ]
     },
     {
       "rank": 2,
-      "winner_rtb_account_name": "Exchange - RTB - Moloco",
-      "metrics": {
-        "dec_13_spend_usd": 2456.78,
-        "dec_14_spend_usd": 2892.34,
-        "absolute_change_usd": 435.56,
-        "percent_change": 17.73
-      },
-      "top_growing_adomain": {
-        "name": "copilot.microsoft.com",
-        "dec_13_spend": 176.27,
-        "dec_14_spend": 299.82,
-        "change_pct": 70.11
-      },
-      "top_growing_pub_app": {
-        "name": "Weather - The Weather Channel",
-        "dec_13_spend": 534.12,
-        "dec_14_spend": 678.45,
-        "change_pct": 27.02
-      },
-      "top_growing_country": {
-        "code": "US",
-        "dec_13_spend": 1892.34,
-        "dec_14_spend": 2234.56,
-        "change_pct": 18.08
-      }
+      "adomain": "rakuten.co.jp",
+      "spend_dec_09": 511.70,
+      "spend_dec_10": 1156.81,
+      "spend_change": 645.12,
+      "spend_change_pct": 126.07,
+      "top_3_rtb_accounts": [
+        {
+          "account_name": "Exchange - RTB - RTBHouse",
+          "spend_dec_09": 175.50,
+          "spend_dec_10": 504.45,
+          "spend_change": 328.95,
+          "spend_change_pct": 187.47
+        },
+        {
+          "account_name": "Exchange - RTB - Opera",
+          "spend_dec_09": 91.71,
+          "spend_dec_10": 227.11,
+          "spend_change": 135.41,
+          "spend_change_pct": 147.67
+        },
+        {
+          "account_name": "Exchange - RTB - Microcloud",
+          "spend_dec_09": 39.20,
+          "spend_dec_10": 65.83,
+          "spend_change": 26.63,
+          "spend_change_pct": 67.90
+        }
+      ],
+      "top_3_publisher_apps": [
+        {
+          "app_name": "Data not available in top results",
+          "spend_dec_09": 0,
+          "spend_dec_10": 0,
+          "spend_change": 0,
+          "spend_change_pct": 0
+        }
+      ],
+      "top_3_countries": [
+        {
+          "country": "JP",
+          "spend_dec_09": 511.56,
+          "spend_dec_10": 1156.54,
+          "spend_change": 644.98,
+          "spend_change_pct": 126.08
+        },
+        {
+          "country": "ID",
+          "spend_dec_09": 0.02,
+          "spend_dec_10": 0.12,
+          "spend_change": 0.10,
+          "spend_change_pct": 670.48
+        },
+        {
+          "country": "KR",
+          "spend_dec_09": 0.02,
+          "spend_dec_10": 0.08,
+          "spend_change": 0.06,
+          "spend_change_pct": 280.09
+        }
+      ]
     },
     {
       "rank": 3,
-      "winner_rtb_account_name": "Exchange - RTB - ByteDance",
-      "metrics": {
-        "dec_13_spend_usd": 198.76,
-        "dec_14_spend_usd": 312.89,
-        "absolute_change_usd": 114.13,
-        "percent_change": 57.42
-      },
-      "top_growing_adomain": {
-        "name": "network.mobile.rakuten.co.jp",
-        "dec_13_spend": 33.27,
-        "dec_14_spend": 48.09,
-        "change_pct": 44.60
-      },
-      "top_growing_pub_app": {
-        "name": "Duolingo",
-        "dec_13_spend": 56.78,
-        "dec_14_spend": 67.89,
-        "change_pct": 19.57
-      },
-      "top_growing_country": {
-        "code": "JP",
-        "dec_13_spend": 143.21,
-        "dec_14_spend": 234.56,
-        "change_pct": 63.81
-      }
+      "adomain": "papayagaming.com",
+      "spend_dec_09": 1692.96,
+      "spend_dec_10": 2149.81,
+      "spend_change": 456.85,
+      "spend_change_pct": 26.99,
+      "top_3_rtb_accounts": [
+        {
+          "account_name": "Exchange - RTB - Personaly",
+          "spend_dec_09": 1251.80,
+          "spend_dec_10": 1677.24,
+          "spend_change": 425.44,
+          "spend_change_pct": 33.99
+        },
+        {
+          "account_name": "Exchange - RTB - Liftoff",
+          "spend_dec_09": 242.98,
+          "spend_dec_10": 277.48,
+          "spend_change": 34.50,
+          "spend_change_pct": 14.20
+        },
+        {
+          "account_name": "Exchange - RTB - Adikteev",
+          "spend_dec_09": 37.17,
+          "spend_dec_10": 41.26,
+          "spend_change": 4.08,
+          "spend_change_pct": 11.00
+        }
+      ],
+      "top_3_publisher_apps": [
+        {
+          "app_name": "Data not available in top results",
+          "spend_dec_09": 0,
+          "spend_dec_10": 0,
+          "spend_change": 0,
+          "spend_change_pct": 0
+        }
+      ],
+      "top_3_countries": [
+        {
+          "country": "US",
+          "spend_dec_09": 1654.18,
+          "spend_dec_10": 2105.13,
+          "spend_change": 450.95,
+          "spend_change_pct": 27.26
+        },
+        {
+          "country": "AU",
+          "spend_dec_09": 6.22,
+          "spend_dec_10": 12.42,
+          "spend_change": 6.21,
+          "spend_change_pct": 99.80
+        },
+        {
+          "country": "FR",
+          "spend_dec_09": 0.32,
+          "spend_dec_10": 1.38,
+          "spend_change": 1.06,
+          "spend_change_pct": 331.15
+        }
+      ]
     }
   ],
-
-  "top_3_declining_rtb_accounts": [
+  "top_3_declining_adomains": [
     {
       "rank": 1,
-      "winner_rtb_account_name": "Exchange - RTB - Personaly",
-      "metrics": {
-        "dec_13_spend_usd": 123.45,
-        "dec_14_spend_usd": 98.76,
-        "absolute_change_usd": -24.69,
-        "percent_change": -20.00
-      },
-      "top_declining_adomain": {
-        "name": "king.com",
-        "dec_13_spend": 89.45,
-        "dec_14_spend": 72.34,
-        "change_pct": -19.13
-      },
-      "top_declining_pub_app": {
-        "name": "iOS Solitaire",
-        "dec_13_spend": 67.89,
-        "dec_14_spend": 54.23,
-        "change_pct": -20.12
-      },
-      "top_declining_country": {
-        "code": "US",
-        "dec_13_spend": 123.45,
-        "dec_14_spend": 98.76,
-        "change_pct": -20.00
-      }
+      "adomain": "temu.com",
+      "spend_dec_09": 38678.62,
+      "spend_dec_10": 10117.50,
+      "spend_change": -28561.12,
+      "spend_change_pct": -73.84,
+      "top_3_declining_rtb_accounts": [
+        {
+          "account_name": "Exchange - RTB - Temu",
+          "spend_dec_09": 30749.22,
+          "spend_dec_10": 4366.60,
+          "spend_change": -26382.62,
+          "spend_change_pct": -85.80
+        },
+        {
+          "account_name": "Exchange - RTB - Liftoff",
+          "spend_dec_09": 5326.54,
+          "spend_dec_10": 4671.01,
+          "spend_change": -655.53,
+          "spend_change_pct": -12.31
+        },
+        {
+          "account_name": "Exchange - RTB - Opera Software",
+          "spend_dec_09": 425.57,
+          "spend_dec_10": 0.00,
+          "spend_change": -425.57,
+          "spend_change_pct": -100.00
+        }
+      ],
+      "top_3_declining_publisher_apps": [
+        {
+          "app_name": "Data not available in top results",
+          "spend_dec_09": 0,
+          "spend_dec_10": 0,
+          "spend_change": 0,
+          "spend_change_pct": 0
+        }
+      ],
+      "top_3_declining_countries": [
+        {
+          "country": "US",
+          "spend_dec_09": 32323.04,
+          "spend_dec_10": 3616.70,
+          "spend_change": -28706.34,
+          "spend_change_pct": -88.81
+        },
+        {
+          "country": "GB",
+          "spend_dec_09": 1064.90,
+          "spend_dec_10": 539.19,
+          "spend_change": -525.71,
+          "spend_change_pct": -49.37
+        },
+        {
+          "country": "DE",
+          "spend_dec_09": 514.24,
+          "spend_dec_10": 352.35,
+          "spend_change": -161.89,
+          "spend_change_pct": -31.48
+        }
+      ]
     },
     {
       "rank": 2,
-      "winner_rtb_account_name": "Exchange - RTB - Rhebus HK Limited",
-      "metrics": {
-        "dec_13_spend_usd": 1234.56,
-        "dec_14_spend_usd": 987.65,
-        "absolute_change_usd": -246.91,
-        "percent_change": -20.00
-      },
-      "top_declining_adomain": {
-        "name": "paypal.com",
-        "dec_13_spend": 1123.45,
-        "dec_14_spend": 912.34,
-        "change_pct": -18.79
-      },
-      "top_declining_pub_app": {
-        "name": "Candy Crush Saga_iOS",
-        "dec_13_spend": 612.34,
-        "dec_14_spend": 498.76,
-        "change_pct": -18.55
-      },
-      "top_declining_country": {
-        "code": "GB",
-        "dec_13_spend": 534.21,
-        "dec_14_spend": 423.89,
-        "change_pct": -20.65
-      }
+      "adomain": "kalshi.com",
+      "spend_dec_09": 3117.85,
+      "spend_dec_10": 399.20,
+      "spend_change": -2718.65,
+      "spend_change_pct": -87.20,
+      "top_3_declining_rtb_accounts": [
+        {
+          "account_name": "Exchange - RTB - Moloco",
+          "spend_dec_09": 2853.17,
+          "spend_dec_10": 255.98,
+          "spend_change": -2597.20,
+          "spend_change_pct": -91.03
+        },
+        {
+          "account_name": "Exchange - RTB - Liftoff",
+          "spend_dec_09": 262.41,
+          "spend_dec_10": 141.24,
+          "spend_change": -121.17,
+          "spend_change_pct": -46.17
+        },
+        {
+          "account_name": "Exchange - RTB - Appsart",
+          "spend_dec_09": 2.21,
+          "spend_dec_10": 1.93,
+          "spend_change": -0.28,
+          "spend_change_pct": -12.85
+        }
+      ],
+      "top_3_declining_publisher_apps": [
+        {
+          "app_name": "Data not available in top results",
+          "spend_dec_09": 0,
+          "spend_dec_10": 0,
+          "spend_change": 0,
+          "spend_change_pct": 0
+        }
+      ],
+      "top_3_declining_countries": [
+        {
+          "country": "US",
+          "spend_dec_09": 3108.74,
+          "spend_dec_10": 397.52,
+          "spend_change": -2711.22,
+          "spend_change_pct": -87.21
+        },
+        {
+          "country": "CA",
+          "spend_dec_09": 3.39,
+          "spend_dec_10": 0.71,
+          "spend_change": -2.68,
+          "spend_change_pct": -79.15
+        },
+        {
+          "country": "MX",
+          "spend_dec_09": 2.37,
+          "spend_dec_10": 0.28,
+          "spend_change": -2.09,
+          "spend_change_pct": -88.22
+        }
+      ]
     },
     {
       "rank": 3,
-      "winner_rtb_account_name": "Exchange - RTB - Opera",
-      "metrics": {
-        "dec_13_spend_usd": 342.15,
-        "dec_14_spend_usd": 298.54,
-        "absolute_change_usd": -43.61,
-        "percent_change": -12.75
-      },
-      "top_declining_adomain": {
-        "name": "MPO888.com",
-        "dec_13_spend": 185.34,
-        "dec_14_spend": 162.78,
-        "change_pct": -12.18
-      },
-      "top_declining_pub_app": {
-        "name": "Turbo",
-        "dec_13_spend": 156.89,
-        "dec_14_spend": 138.67,
-        "change_pct": -11.61
-      },
-      "top_declining_country": {
-        "code": "ID",
-        "dec_13_spend": 289.45,
-        "dec_14_spend": 251.23,
-        "change_pct": -13.21
-      }
+      "adomain": "goodjobgames.com",
+      "spend_dec_09": 2397.14,
+      "spend_dec_10": 1735.81,
+      "spend_change": -661.33,
+      "spend_change_pct": -27.59,
+      "top_3_declining_rtb_accounts": [
+        {
+          "account_name": "Exchange - RTB - Liftoff",
+          "spend_dec_09": 2333.75,
+          "spend_dec_10": 1635.21,
+          "spend_change": -698.54,
+          "spend_change_pct": -29.93
+        },
+        {
+          "account_name": "Exchange - RTB - Shareit",
+          "spend_dec_09": 0.00,
+          "spend_dec_10": 0.00,
+          "spend_change": 0.00,
+          "spend_change_pct": -99.22
+        },
+        {
+          "account_name": "Exchange - RTB - Smaato",
+          "spend_dec_09": 0.00,
+          "spend_dec_10": 0.00,
+          "spend_change": 0.00,
+          "spend_change_pct": -100.00
+        }
+      ],
+      "top_3_declining_publisher_apps": [
+        {
+          "app_name": "Block Blast-ios",
+          "spend_dec_09": 261.78,
+          "spend_dec_10": 165.56,
+          "spend_change": -96.22,
+          "spend_change_pct": -36.75
+        },
+        {
+          "app_name": "Word Solitaire: Associations IOS",
+          "spend_dec_09": 170.98,
+          "spend_dec_10": 121.49,
+          "spend_change": -49.49,
+          "spend_change_pct": -28.95
+        },
+        {
+          "app_name": "Weather - The Weather Channel",
+          "spend_dec_09": 130.79,
+          "spend_dec_10": 81.93,
+          "spend_change": -48.86,
+          "spend_change_pct": -37.36
+        }
+      ],
+      "top_3_declining_countries": [
+        {
+          "country": "US",
+          "spend_dec_09": 2065.18,
+          "spend_dec_10": 1489.15,
+          "spend_change": -576.03,
+          "spend_change_pct": -27.89
+        },
+        {
+          "country": "CA",
+          "spend_dec_09": 128.86,
+          "spend_dec_10": 90.88,
+          "spend_change": -37.97,
+          "spend_change_pct": -29.46
+        },
+        {
+          "country": "AU",
+          "spend_dec_09": 44.65,
+          "spend_dec_10": 27.52,
+          "spend_change": -17.13,
+          "spend_change_pct": -38.37
+        }
+      ]
     }
   ],
-
-  "key_insights_summary": [
-    "Temu dominates growth with +19.4% increase, expanding aggressively in US market across puzzle/solitaire games",
-    "Moloco's banner ad strategy paying off with 70% growth in Microsoft Copilot domain",
-    "ByteDance showing remarkable 57% growth in JP market, particularly with Rakuten mobile partnerships",
-    "Rhebus/PayPal campaigns declining -20%, suggesting budget reallocation or campaign end",
-    "Personaly experiencing -20% decline in King.com campaigns on iOS Solitaire",
-    "Indonesia market showing weakness with Opera declining -12.75% in MPO888 campaigns"
-  ],
-
-  "methodology_notes": [
-    "Analysis based on hour 12 UTC data only (not full day)",
-    "Filtered to 17 specified countries",
-    "Growth/decline rankings based on absolute spend changes within specified RTB account list",
-    "Top dimensions selected by highest absolute spend contribution to account total",
-    "Sample represents top 1000 transactions by spend for each day"
-  ]
+  "key_insights": {
+    "overall_performance": "Overall EDSP transaction performance declined by 20.46% in advertiser spend between Dec 9 and Dec 10, with total spend dropping from $157,640 to $125,384. Average winning bid prices decreased 19.10% from $1.96 to $1.58, while total views remained relatively stable (-1.35%).",
+    "growing_trends": [
+      "Lazada.com showed explosive growth of 674%, driven primarily by Yeahmobi RTB account (3,429% increase) and expansion into Philippines (+387%) and Indonesia (+5,386%)",
+      "Rakuten.co.jp doubled its spend (+126%), with RTBHouse RTB account leading growth (+187%) and nearly all activity concentrated in Japan",
+      "Papayagaming.com showed modest growth (+27%) with Personaly RTB account as the primary driver (+34%)"
+    ],
+    "declining_trends": [
+      "Temu.com experienced the largest absolute decline (-$28,561, -73.84%), with the self-operated Temu RTB account seeing -85.80% drop and US market declining -88.81%",
+      "Kalshi.com declined -87.20% with Moloco RTB account dropping -91.03%, primarily impacting US market (-87.21%)",
+      "Goodjobgames.com declined -27.59% with Liftoff RTB account seeing -29.93% decrease, primarily affecting iOS gaming apps"
+    ],
+    "market_observations": [
+      "US market dominated both growing and declining trends, suggesting high volatility in US advertiser behavior",
+      "Southeast Asian markets (PH, ID) showed strong growth potential for e-commerce advertisers like Lazada",
+      "Gaming category showed mixed results with some publishers declining while others remained stable",
+      "RTB partnerships heavily concentrated among top accounts (Liftoff, Moloco, Personaly) across multiple adomains"
+    ]
+  }
 }

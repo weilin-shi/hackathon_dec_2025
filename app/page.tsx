@@ -2,13 +2,36 @@
 
 import report from "./report.json";
 import { useState } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ReferenceLine,
+  Cell,
+} from "recharts";
+
+const data = [
+  ...report.top_3_growing_adomains.map((item) => ({ 
+    bin: item.adomain,
+    count: item.spend_change_pct,
+  })),
+  ...report.top_3_declining_adomains.map((item) => ({
+    bin: item.adomain,
+    count: item.spend_change_pct,
+  })),
+];
 
 const navItems = [
-  ...report.top_3_growing_rtb_accounts.map((item) => ({
-    label: item.winner_rtb_account_name,
+  ...report.top_3_growing_adomains.map((item) => ({
+    label: item.adomain,
+    growing: true,
   })),
-  ...report.top_3_declining_rtb_accounts.map((item) => ({
-    label: item.winner_rtb_account_name,
+  ...report.top_3_declining_adomains.map((item) => ({
+    label: item.adomain,
+    growing: false,
   })),
 ];
 
@@ -19,7 +42,7 @@ export default function Page() {
     <main className="layout">
       <aside className="sidebar">
         <div className="brand">
-          <h1>{report.report_metadata.generated_at}</h1>
+          <h1>{report.report_metadata.generation_timestamp}</h1>
           <p>Detected Anomalies ({navItems.length})</p>
         </div>
 
@@ -27,7 +50,7 @@ export default function Page() {
           {navItems.map((item) => (
             <a
               key={item.label}
-              className={`nav-item ${
+              className={`nav-item ${item.growing ? "growing" : "declining"} ${
                 activeNavItem === item.label ? "active" : ""
               }`}
               onClick={() => setActiveNavItem(item.label)}
@@ -59,24 +82,24 @@ export default function Page() {
 
         <div className="stat-grid">
           <div className="stat-card">
-            <p className="eyebrow">MRR</p>
-            <h3>$218k</h3>
-            <p className="delta positive">+12.4% vs last month</p>
+            <p className="eyebrow">Advertiser Spend</p>
+            <h3>${report.overall_summary.dec_10.total_adv_spend}</h3>
+            <p className="delta negative">{report.overall_summary.day_over_day_change.adv_spend_change_pct}% vs yesterday</p>
           </div>
           <div className="stat-card">
-            <p className="eyebrow">Active users</p>
-            <h3>42,810</h3>
-            <p className="delta positive">+4.1% WoW</p>
+            <p className="eyebrow">Clicks</p>
+            <h3>{report.overall_summary.dec_10.total_clicks}</h3>
+            <p className="delta negative">{report.overall_summary.day_over_day_change.clicks_change_pct}% vs yesterday</p>
           </div>
           <div className="stat-card">
-            <p className="eyebrow">Retention</p>
-            <h3>93.2%</h3>
-            <p className="delta muted">Flat week over week</p>
+            <p className="eyebrow">Views</p>
+            <h3>{report.overall_summary.dec_10.total_views}</h3>
+            <p className="delta">{report.overall_summary.day_over_day_change.views_change_pct}% vs yesterday</p>
           </div>
           <div className="stat-card">
-            <p className="eyebrow">Support load</p>
-            <h3>236</h3>
-            <p className="delta negative">-8.3% resolution time</p>
+            <p className="eyebrow">Average Bid Price</p>
+            <h3>{report.overall_summary.dec_10.avg_winning_bid_price}</h3>
+            <p className="delta negative">{report.overall_summary.day_over_day_change.avg_bid_change_pct}% vs yesterday</p>
           </div>
         </div>
 
@@ -89,13 +112,56 @@ export default function Page() {
               </div>
               <button className="ghost small">Export</button>
             </div>
-            <div
-              className="summary-list"
-            >
-              {report.key_insights_summary.map((item) => (
-                <div key={item}>- {item}</div>
-              ))}
-            </div>
+
+            <div>{report.key_insights.overall_performance}</div>
+            <details className="summary-list" open>
+              <summary>Growing Trends</summary>
+              <ul>
+                {report.key_insights.growing_trends.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </details>
+            <details className="summary-list" open>
+              <summary>Declining Trends</summary>
+              <ul>
+                {report.key_insights.declining_trends.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </details>
+            <details className="summary-list" open>
+              <summary>Market Observations</summary>
+              <ul>
+                {report.key_insights.market_observations.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </details>
+
+            <BarChart width={1000} height={400} data={data}>
+              <CartesianGrid strokeDasharray="3 3" />
+
+              <XAxis dataKey="bin" tick={{ fill: 'white' }} />
+
+              <YAxis domain={["auto", "auto"]} />
+
+              <Tooltip 
+                formatter={(value: number | undefined) => [`change percent: ${value ?? 0}%`, '']}
+              />
+
+              {/* Zero-line for visual clarity */}
+              <ReferenceLine y={0} stroke="#333" strokeWidth={2} />
+
+              <Bar dataKey="count">
+                {data.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={entry.count < 0 ? "#ff4d4d" : "#4caf50"} // red vs green
+                  />
+                ))}
+              </Bar>
+            </BarChart>
           </div>
         </div>
       </section>

@@ -8,8 +8,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Atlas Dashboard',
-  description: 'Static dashboard template with sidebar and chart-ready main area.'
+  title: 'VX Exchange Health Dashboard',
+  description: 'Real-time anomaly detection with AI-powered insights.'
 };
 
 export default function RootLayout({
