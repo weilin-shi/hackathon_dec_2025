@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import report from "../report.json";
 import { useSearchParams } from "next/navigation";
@@ -13,10 +14,12 @@ import {
   Cell,
 } from "recharts";
 
-export default function DetailsPage() {
+function DetailsContent() {
   const searchParams = useSearchParams();
   const bin = searchParams.get("bin");
-  const decliningAdomain = report.top_3_declining_adomains.find(item => item.adomain === bin);
+  const decliningAdomain = report.top_3_declining_adomains.find(
+    (item) => item.adomain === bin
+  );
   const top3Countries = decliningAdomain?.top_3_declining_countries || [];
 
   return (
@@ -36,7 +39,7 @@ export default function DetailsPage() {
         </header>
 
         <div className="panel">
-        <BarChart width={1000} height={400} data={top3Countries}>
+          <BarChart width={1000} height={400} data={top3Countries}>
             <XAxis dataKey="country" tick={{ fill: "white" }} />
 
             <YAxis domain={["auto", "auto"]} />
@@ -62,5 +65,21 @@ export default function DetailsPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function DetailsPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="layout">
+          <section className="content">
+            <div className="panel">Loading details...</div>
+          </section>
+        </main>
+      }
+    >
+      <DetailsContent />
+    </Suspense>
   );
 }

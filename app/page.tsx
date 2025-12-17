@@ -35,6 +35,7 @@ export default function Page() {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isDelayActive, setIsDelayActive] = useState(false);
+  const [input, setInput] = useState("");
   const showLoading = isPending || isDelayActive;
   const handleClick = (route: string) => {
     return () => {
@@ -192,12 +193,13 @@ export default function Page() {
         </div>
 
         <div className="chat-input-container">
-          <textarea className="chat-input" placeholder="Ask me anything..." />
+          <textarea className="chat-input" placeholder="Ask me anything..." value={input} onChange={(e) => setInput(e.target.value)} />
         </div>
         <div>
           <button
-            className="primary"
+            className={input.length === 0 ? "ghost" : "primary"}
             onClick={handleClick("/details?bin=temu.com")}
+            disabled={showLoading || input.length === 0}
           >
             Send
           </button>
