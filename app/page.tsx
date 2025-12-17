@@ -179,7 +179,7 @@ export default function Page() {
         <div>
           <button
             className={input.length === 0 ? "ghost" : "primary"}
-            onClick={handleClick("/details?bin=temu.com")}
+            onClick={handleClick("/details?bin=Temu")}
             disabled={showLoading || input.length === 0}
           >
             Send

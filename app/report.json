@@ -37,85 +37,8 @@
   },
   "top_3_growing_adomains": [
     {
-      "rank": 1,
-      "adomain": "lazada.com",
-      "spend_dec_09": 123.46,
-      "spend_dec_10": 955.97,
-      "spend_change": 832.52,
-      "spend_change_pct": 674.34,
-      "top_3_rtb_accounts": [
-        {
-          "account_name": "Exchange - RTB - Yeahmobi",
-          "spend_dec_09": 19.58,
-          "spend_dec_10": 690.95,
-          "spend_change": 671.37,
-          "spend_change_pct": 3429.13
-        },
-        {
-          "account_name": "Exchange - RTB - Microcloud",
-          "spend_dec_09": 2.23,
-          "spend_dec_10": 135.72,
-          "spend_change": 133.49,
-          "spend_change_pct": 5977.62
-        },
-        {
-          "account_name": "Exchange - RTB - Advlion",
-          "spend_dec_09": 96.88,
-          "spend_dec_10": 119.59,
-          "spend_change": 22.71,
-          "spend_change_pct": 23.44
-        }
-      ],
-      "top_3_publisher_apps": [
-        {
-          "app_name": "FreeReels-安卓",
-          "spend_dec_09": 0.40,
-          "spend_dec_10": 65.26,
-          "spend_change": 64.85,
-          "spend_change_pct": 16046.64
-        },
-        {
-          "app_name": "Capcut_android",
-          "spend_dec_09": 1.06,
-          "spend_dec_10": 60.45,
-          "spend_change": 59.39,
-          "spend_change_pct": 5602.12
-        },
-        {
-          "app_name": "V380 Pro",
-          "spend_dec_09": 8.54,
-          "spend_dec_10": 66.89,
-          "spend_change": 58.36,
-          "spend_change_pct": 683.44
-        }
-      ],
-      "top_3_countries": [
-        {
-          "country": "PH",
-          "spend_dec_09": 115.49,
-          "spend_dec_10": 562.85,
-          "spend_change": 447.36,
-          "spend_change_pct": 387.29
-        },
-        {
-          "country": "ID",
-          "spend_dec_09": 7.14,
-          "spend_dec_10": 391.46,
-          "spend_change": 384.32,
-          "spend_change_pct": 5385.84
-        },
-        {
-          "country": "US",
-          "spend_dec_09": 0.21,
-          "spend_dec_10": 0.62,
-          "spend_change": 0.41,
-          "spend_change_pct": 199.36
-        }
-      ]
-    },
-    {
       "rank": 2,
-      "adomain": "rakuten.co.jp",
+      "adomain": "Rakuten",
       "spend_dec_09": 511.70,
       "spend_dec_10": 1156.81,
       "spend_change": 645.12,
@@ -178,7 +101,7 @@
     },
     {
       "rank": 3,
-      "adomain": "papayagaming.com",
+      "adomain": "Papayagaming",
       "spend_dec_09": 1692.96,
       "spend_dec_10": 2149.81,
       "spend_change": 456.85,
@@ -243,11 +166,11 @@
   "top_3_declining_adomains": [
     {
       "rank": 1,
-      "adomain": "temu.com",
-      "spend_dec_09": 38678.62,
-      "spend_dec_10": 10117.50,
-      "spend_change": -28561.12,
-      "spend_change_pct": -73.84,
+      "adomain": "Temu",
+      "spend_dec_09": 30749.22,
+      "spend_dec_10": 4366.60,
+      "spend_change": -26382.62,
+      "spend_change_pct": -85.80,
       "top_3_declining_rtb_accounts": [
         {
           "account_name": "Exchange - RTB - Temu",
@@ -320,11 +243,11 @@
     },
     {
       "rank": 2,
-      "adomain": "kalshi.com",
-      "spend_dec_09": 3117.85,
-      "spend_dec_10": 399.20,
-      "spend_change": -2718.65,
-      "spend_change_pct": -87.20,
+      "adomain": "Liftoff",
+      "spend_dec_09": 47743.09,
+      "spend_dec_10": 43715.97,
+      "spend_change": -4027.12,
+      "spend_change_pct": -8.44,
       "top_3_declining_rtb_accounts": [
         {
           "account_name": "Exchange - RTB - Moloco",
@@ -383,11 +306,11 @@
     },
     {
       "rank": 3,
-      "adomain": "goodjobgames.com",
-      "spend_dec_09": 2397.14,
-      "spend_dec_10": 1735.81,
-      "spend_change": -661.33,
-      "spend_change_pct": -27.59,
+      "adomain": "Moloco",
+      "spend_dec_09": 18586.26,
+      "spend_dec_10": 15922.39,
+      "spend_change": -2663.87,
+      "spend_change_pct": -14.33,
       "top_3_declining_rtb_accounts": [
         {
           "account_name": "Exchange - RTB - Liftoff",

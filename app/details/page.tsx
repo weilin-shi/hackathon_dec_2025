@@ -75,6 +75,7 @@ function DetailsContent() {
                 <Cell
                   key={`cell-${index}`}
                   fill={entry.spend_change_pct < 0 ? "#ff4d4d" : "#4caf50"}
+                  onClick={handleClick}
                 />
               ))}
             </Bar>
