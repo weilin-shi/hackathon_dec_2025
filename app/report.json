@@ -303,14 +303,14 @@
           "spend_change_pct": -31.48
         },
         {
-          "country_code": "PH",
+          "country": "PH",
           "dec_09_spend": 242.96,
           "dec_10_spend": 138.80,
           "absolute_decline": -104.15,
           "spend_change_pct": -42.87
         },
         {
-          "country_code": "BR",
+          "country": "BR",
           "dec_09_spend": 573.07,
           "dec_10_spend": 515.29,
           "absolute_decline": -57.78,

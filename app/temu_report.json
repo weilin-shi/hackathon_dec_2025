@@ -1,0 +1,349 @@
+{
+  "report_metadata": {
+    "title": "Temu.com US Market Performance Investigation",
+    "date_range": "2025-12-09 to 2025-12-10",
+    "filters_applied": {
+      "hour_utc": 1,
+      "country": "US",
+      "adomain": "temu.com"
+    },
+    "data_source": "dmx.bi.fct_edsp_transaction_events",
+    "generation_timestamp": "2025-12-16T00:00:00Z"
+  },
+  
+  "executive_summary": {
+    "overview": "Critical 88.8% decline in advertiser spend for temu.com in US market during hour 1 UTC",
+    "primary_cause": "Massive reduction in Exchange - RTB - Temu account activity (99.8% drop)",
+    "severity": "CRITICAL - Near-complete traffic loss from primary RTB account"
+  },
+  
+  "overall_day_over_day_comparison": {
+    "date_2025_12_09": {
+      "total_adv_spend": 32323.04,
+      "total_clicks": 687764,
+      "total_views": 1401634,
+      "avg_winning_bid_price": 23.1167,
+      "unique_publisher_apps": 15108,
+      "unique_placements": 35765,
+      "unique_rtb_accounts": 37,
+      "total_events": 3918180
+    },
+    "date_2025_12_10": {
+      "total_adv_spend": 3616.70,
+      "total_clicks": 64925,
+      "total_views": 242956,
+      "avg_winning_bid_price": 15.2707,
+      "unique_publisher_apps": 9742,
+      "unique_placements": 19302,
+      "unique_rtb_accounts": 22,
+      "total_events": 682033
+    },
+    "absolute_changes": {
+      "adv_spend_change": -28706.34,
+      "clicks_change": -622839,
+      "views_change": -1158678,
+      "bid_price_change": -7.8460,
+      "publisher_apps_change": -5366,
+      "placements_change": -16463,
+      "rtb_accounts_change": -15,
+      "events_change": -3236147
+    },
+    "percentage_changes": {
+      "adv_spend_pct": -88.81,
+      "clicks_pct": -90.56,
+      "views_pct": -82.67,
+      "bid_price_pct": -33.95,
+      "publisher_apps_pct": -35.52,
+      "placements_pct": -46.04,
+      "rtb_accounts_pct": -40.54,
+      "events_pct": -82.59
+    }
+  },
+  
+  "top_3_growing_rtb_accounts_by_absolute_spend": [
+    {
+      "rank": 1,
+      "rtb_account_name": "Exchange - RTB - Appsart",
+      "spend_12_09": 0.11,
+      "spend_12_10": 0.55,
+      "absolute_change": 0.44,
+      "percent_change": 400.0,
+      "clicks_12_09": 2,
+      "clicks_12_10": 33,
+      "views_12_09": 94,
+      "views_12_10": 290
+    },
+    {
+      "rank": 2,
+      "rtb_account_name": "Exchange - RTB - Kayzen",
+      "spend_12_09": 4.49,
+      "spend_12_10": 4.88,
+      "absolute_change": 0.39,
+      "percent_change": 8.69,
+      "clicks_12_09": 1,
+      "clicks_12_10": 0,
+      "views_12_09": 89761,
+      "views_12_10": 97223
+    },
+    {
+      "rank": 3,
+      "rtb_account_name": "All others showed decline",
+      "note": "No other RTB accounts showed growth"
+    }
+  ],
+  
+  "top_10_declining_rtb_accounts_by_absolute_spend": [
+    {
+      "rank": 1,
+      "rtb_account_name": "Exchange - RTB - Temu",
+      "spend_12_09": 26201.39,
+      "spend_12_10": 45.80,
+      "absolute_decline": -26155.59,
+      "percent_decline": -99.83,
+      "clicks_12_09": 567003,
+      "clicks_12_10": 1050,
+      "views_12_09": 1020425,
+      "views_12_10": 2110,
+      "impact": "PRIMARY DRIVER OF DECLINE - Lost 99.8% of spend"
+    },
+    {
+      "rank": 2,
+      "rtb_account_name": "Exchange - RTB - Liftoff",
+      "spend_12_09": 4376.87,
+      "spend_12_10": 3555.54,
+      "absolute_decline": -821.33,
+      "percent_decline": -18.77,
+      "clicks_12_09": 76853,
+      "clicks_12_10": 63095,
+      "views_12_09": 172802,
+      "views_12_10": 140913,
+      "impact": "Now the dominant RTB account (98.3% of total spend on 12-10)"
+    },
+    {
+      "rank": 3,
+      "rtb_account_name": "Exchange - RTB - Opera Software",
+      "spend_12_09": 425.08,
+      "spend_12_10": 0.00,
+      "absolute_decline": -425.08,
+      "percent_decline": -100.00,
+      "clicks_12_09": 6576,
+      "clicks_12_10": 0,
+      "views_12_09": 17108,
+      "views_12_10": 0,
+      "impact": "Complete traffic loss"
+    },
+    {
+      "rank": 4,
+      "rtb_account_name": "Exchange - RTB - Opera",
+      "spend_12_09": 318.84,
+      "spend_12_10": 1.37,
+      "absolute_decline": -317.47,
+      "percent_decline": -99.57,
+      "clicks_12_09": 5407,
+      "clicks_12_10": 43,
+      "views_12_09": 11907,
+      "views_12_10": 114,
+      "impact": "Near-complete traffic loss"
+    },
+    {
+      "rank": 5,
+      "rtb_account_name": "Exchange - RTB - Bidease",
+      "spend_12_09": 289.68,
+      "spend_12_10": 3.57,
+      "absolute_decline": -286.11,
+      "percent_decline": -98.77,
+      "clicks_12_09": 7023,
+      "clicks_12_10": 232,
+      "views_12_09": 20465,
+      "views_12_10": 431,
+      "impact": "Severe traffic reduction"
+    },
+    {
+      "rank": 6,
+      "rtb_account_name": "Exchange - RTB - Ignite",
+      "spend_12_09": 287.47,
+      "spend_12_10": 2.26,
+      "absolute_decline": -285.21,
+      "percent_decline": -99.21,
+      "clicks_12_09": 13986,
+      "clicks_12_10": 194,
+      "views_12_09": 25809,
+      "views_12_10": 405,
+      "impact": "Severe traffic reduction"
+    },
+    {
+      "rank": 7,
+      "rtb_account_name": "Exchange - RTB - Bluesea",
+      "spend_12_09": 154.68,
+      "spend_12_10": 0.98,
+      "absolute_decline": -153.70,
+      "percent_decline": -99.37,
+      "clicks_12_09": 5475,
+      "clicks_12_10": 182,
+      "views_12_09": 11548,
+      "views_12_10": 347,
+      "impact": "Near-complete traffic loss"
+    },
+    {
+      "rank": 8,
+      "rtb_account_name": "Exchange - RTB - Start.io",
+      "spend_12_09": 87.38,
+      "spend_12_10": 1.10,
+      "absolute_decline": -86.28,
+      "percent_decline": -98.74,
+      "clicks_12_09": 1812,
+      "clicks_12_10": 34,
+      "views_12_09": 5087,
+      "views_12_10": 173,
+      "impact": "Severe traffic reduction"
+    },
+    {
+      "rank": 9,
+      "rtb_account_name": "Exchange - RTB - Pubmatic",
+      "spend_12_09": 44.98,
+      "spend_12_10": 0.01,
+      "absolute_decline": -44.97,
+      "percent_decline": -99.98,
+      "clicks_12_09": 225,
+      "clicks_12_10": 0,
+      "views_12_09": 15147,
+      "views_12_10": 5,
+      "impact": "Complete traffic loss"
+    },
+    {
+      "rank": 10,
+      "rtb_account_name": "Exchange - RTB - Webeye",
+      "spend_12_09": 43.44,
+      "spend_12_10": 0.06,
+      "absolute_decline": -43.38,
+      "percent_decline": -99.86,
+      "clicks_12_09": 823,
+      "clicks_12_10": 7,
+      "views_12_09": 2546,
+      "views_12_10": 18,
+      "impact": "Near-complete traffic loss"
+    }
+  ],
+  
+  "key_insights": {
+    "primary_finding": "Exchange - RTB - Temu experienced catastrophic traffic loss, dropping from $26,201 (81.1% of total spend) to $45.80 (1.3% of total spend)",
+    
+    "rtb_account_shift": "Exchange - RTB - Liftoff became the dominant account on 12-10, accounting for 98.3% of total spend despite an 18.8% decline in its own spending",
+    
+    "widespread_impact": "15 RTB accounts completely or nearly stopped serving on 12-10, suggesting systemic issue rather than isolated problem",
+    
+    "bid_price_decline": "Average winning bid price dropped 34% from $23.12 to $15.27, indicating possible shift to lower-quality inventory or pricing pressure",
+    
+    "placement_diversity_loss": "46% reduction in unique placements and 35.5% reduction in unique publisher apps indicates narrowing of available inventory",
+    
+    "traffic_patterns": {
+      "total_event_volume_drop": "82.6% decline (3.9M to 682K events)",
+      "click_through_rate_12_09": "49.07% (687,764 clicks / 1,401,634 views)",
+      "click_through_rate_12_10": "26.72% (64,925 clicks / 242,956 views)",
+      "ctr_decline": "CTR dropped 45.5%, suggesting quality degradation"
+    },
+    
+    "potential_causes": [
+      "Temu RTB account paused or throttled campaigns",
+      "Budget exhaustion or budget cap hit on Temu account",
+      "Bidding strategy change or bid price reduction",
+      "Inventory availability issue affecting multiple RTB accounts",
+      "Possible technical issue or system outage affecting hour 1 UTC",
+      "Deliberate traffic reduction or testing by Temu"
+    ],
+    
+    "recommended_actions": [
+      "Investigate Temu RTB account status and campaign settings",
+      "Check for any budget constraints or delivery throttling",
+      "Review bidding strategies and floor prices for hour 1 UTC",
+      "Verify inventory availability and quality during this hour",
+      "Analyze if similar patterns exist in other hours or geos",
+      "Contact Temu account team for campaign status verification"
+    ]
+  },
+  
+  "detailed_metrics_by_rtb_account": {
+    "2025_12_09_top_10": [
+      {"account": "Exchange - RTB - Temu", "spend": 26201.39, "clicks": 567003, "views": 1020425, "share_of_spend": "81.1%"},
+      {"account": "Exchange - RTB - Liftoff", "spend": 4376.87, "clicks": 76853, "views": 172802, "share_of_spend": "13.5%"},
+      {"account": "Exchange - RTB - Opera Software", "spend": 425.08, "clicks": 6576, "views": 17108, "share_of_spend": "1.3%"},
+      {"account": "Exchange - RTB - Opera", "spend": 318.84, "clicks": 5407, "views": 11907, "share_of_spend": "1.0%"},
+      {"account": "Exchange - RTB - Bidease", "spend": 289.68, "clicks": 7023, "views": 20465, "share_of_spend": "0.9%"},
+      {"account": "Exchange - RTB - Ignite", "spend": 287.47, "clicks": 13986, "views": 25809, "share_of_spend": "0.9%"},
+      {"account": "Exchange - RTB - Bluesea", "spend": 154.68, "clicks": 5475, "views": 11548, "share_of_spend": "0.5%"},
+      {"account": "Exchange - RTB - Start.io", "spend": 87.38, "clicks": 1812, "views": 5087, "share_of_spend": "0.3%"},
+      {"account": "Exchange - RTB - Pubmatic", "spend": 44.98, "clicks": 225, "views": 15147, "share_of_spend": "0.1%"},
+      {"account": "Exchange - RTB - Webeye", "spend": 43.44, "clicks": 823, "views": 2546, "share_of_spend": "0.1%"}
+    ],
+    "2025_12_10_top_10": [
+      {"account": "Exchange - RTB - Liftoff", "spend": 3555.54, "clicks": 63095, "views": 140913, "share_of_spend": "98.3%"},
+      {"account": "Exchange - RTB - Temu", "spend": 45.80, "clicks": 1050, "views": 2110, "share_of_spend": "1.3%"},
+      {"account": "Exchange - RTB - Kayzen", "spend": 4.88, "clicks": 0, "views": 97223, "share_of_spend": "0.1%"},
+      {"account": "Exchange - RTB - Bidease", "spend": 3.57, "clicks": 232, "views": 431, "share_of_spend": "0.1%"},
+      {"account": "Exchange - RTB - Ignite", "spend": 2.26, "clicks": 194, "views": 405, "share_of_spend": "0.1%"},
+      {"account": "Exchange - RTB - Opera", "spend": 1.37, "clicks": 43, "views": 114, "share_of_spend": "<0.1%"},
+      {"account": "Exchange - RTB - Bluesea", "spend": 0.98, "clicks": 182, "views": 347, "share_of_spend": "<0.1%"},
+      {"account": "Exchange - RTB - Appsart", "spend": 0.55, "clicks": 33, "views": 290, "share_of_spend": "<0.1%"},
+      {"account": "Exchange - RTB - Bidmachine", "spend": 0.34, "clicks": 33, "views": 80, "share_of_spend": "<0.1%"},
+      {"account": "Exchange - RTB - Start.io", "spend": 1.10, "clicks": 34, "views": 173, "share_of_spend": "<0.1%"}
+    ]
+  },
+  
+  "top_publisher_apps_impact": {
+    "most_impacted_apps_12_09_to_12_10": [
+      {
+        "app": "Block Blast-ios",
+        "spend_12_09": 1039.12,
+        "spend_12_10": 24.76,
+        "decline": -1014.36,
+        "pct_decline": -97.6,
+        "primary_rtb_account": "Exchange - RTB - Temu (switched to Liftoff/Temu mix)"
+      },
+      {
+        "app": "Block Juggle—GP",
+        "spend_12_09": 511.46,
+        "spend_12_10": 113.40,
+        "decline": -398.06,
+        "pct_decline": -77.8,
+        "primary_rtb_account": "Exchange - RTB - Temu (switched to Liftoff)"
+      },
+      {
+        "app": "Woodoku",
+        "spend_12_09": 489.05,
+        "spend_12_10": 59.06,
+        "decline": -429.99,
+        "pct_decline": -87.9,
+        "primary_rtb_account": "Exchange - RTB - Temu (switched to Liftoff)"
+      },
+      {
+        "app": "Vita Mahjong",
+        "spend_12_09": 436.36,
+        "spend_12_10": 10.62,
+        "decline": -425.74,
+        "pct_decline": -97.6,
+        "primary_rtb_account": "Exchange - RTB - Temu (switched to Liftoff)"
+      },
+      {
+        "app": "Vita Mahjong Android",
+        "spend_12_09": 393.66,
+        "spend_12_10": 22.53,
+        "decline": -371.13,
+        "pct_decline": -94.3,
+        "primary_rtb_account": "Exchange - RTB - Temu (switched to Liftoff)"
+      }
+    ]
+  },
+  
+  "placement_type_analysis": {
+    "2025_12_09_distribution": "Interstitial dominated at ~75%, Rewarded ~20%, other formats ~5%",
+    "2025_12_10_distribution": "Interstitial ~60%, Rewarded ~30%, AppOpen ~8%, other formats ~2%",
+    "shift_observation": "Relative increase in Rewarded and AppOpen placements suggests Liftoff account favors these formats"
+  },
+  
+  "data_quality_notes": {
+    "note_1": "Data limited to Hour 1 UTC only per requirements",
+    "note_2": "All RTB account classifications based on dim_rtb_accounts.name field",
+    "note_3": "Unknown values represent unmapped dimension records",
+    "note_4": "Native and Banner placements showed minimal activity on both days"
+  }
+}
